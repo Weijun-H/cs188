@@ -371,6 +371,20 @@ def cornersHeuristic(state, problem):
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
 
     "*** YOUR CODE HERE ***"
+
+    xlen = corners[3][0]
+    ylen = corners[3][1]
+
+    if len(state[1]) == 0:
+        return 0
+
+    val = []
+
+    for s in state[1]:
+        val.append( abs(s[0] - state[0][0]) + abs( s[1] - state[0][1] ) )
+
+    return max(val)
+
     return 0 # Default to trivial solution
 
 class AStarCornersAgent(SearchAgent):
